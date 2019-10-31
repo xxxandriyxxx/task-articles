@@ -1,7 +1,9 @@
+import {Article} from './Article';
+
 export class CartData {
 
   constructor(
-    public articleId: number = null,
+    public article: Article = null,
     public amount: number = null
   ) {
   }
