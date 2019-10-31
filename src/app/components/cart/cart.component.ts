@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {CartData} from '../../models/CartData';
 
 @Component({
@@ -6,7 +6,7 @@ import {CartData} from '../../models/CartData';
   templateUrl: './cart.component.html',
   styleUrls: ['./cart.component.css']
 })
-export class CartComponent implements OnInit {
+export class CartComponent implements OnInit, OnDestroy {
 
   totalAmount = 0;
   totalCost = 0;
@@ -22,6 +22,12 @@ export class CartComponent implements OnInit {
         this.totalAmount += cartData.amount;
         this.totalCost += cartData.article.price * cartData.amount;
       }
+    }
+  }
+
+  ngOnDestroy() {
+    if (this.shoppingCart.length !== 0) {
+      localStorage.setItem('_shoppingCart', JSON.stringify(this.shoppingCart));
     }
   }
 
