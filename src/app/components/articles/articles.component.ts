@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {Article} from '../../models/Article';
 import {ArticleService} from '../../services/article.service';
 import {CartData} from '../../models/CartData';
@@ -8,7 +8,7 @@ import {CartData} from '../../models/CartData';
   templateUrl: './articles.component.html',
   styleUrls: ['./articles.component.css']
 })
-export class ArticlesComponent implements OnInit {
+export class ArticlesComponent implements OnInit, OnDestroy {
 
   articles: Article[] = [];
   shoppingCart: CartData[] = [];
@@ -18,6 +18,13 @@ export class ArticlesComponent implements OnInit {
 
   ngOnInit() {
     this.getArticles();
+    if (localStorage.getItem('_shoppingCart')) {
+      this.shoppingCart = JSON.parse(localStorage.getItem('_shoppingCart'));
+    }
+  }
+
+  ngOnDestroy() {
+    localStorage.setItem('_shoppingCart', JSON.stringify(this.shoppingCart));
   }
 
   getArticles() {
@@ -35,5 +42,7 @@ export class ArticlesComponent implements OnInit {
     }
     console.log(JSON.stringify(this.shoppingCart));
   }
+
+
 
 }
