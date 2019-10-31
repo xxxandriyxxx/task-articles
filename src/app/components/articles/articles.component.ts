@@ -16,6 +16,8 @@ export class ArticlesComponent implements OnInit {
   ngOnInit() {
   }
 
+
+
   addToCart(article: Article) {
 
   }
