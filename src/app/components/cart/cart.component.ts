@@ -8,8 +8,8 @@ import {CartData} from '../../models/CartData';
 })
 export class CartComponent implements OnInit {
 
-  totalAmount: number = null;
-  totalCost: number = null;
+  totalAmount = 0;
+  totalCost = 0;
   shoppingCart: CartData[] = [];
 
   constructor() {
@@ -18,18 +18,36 @@ export class CartComponent implements OnInit {
   ngOnInit() {
     if (localStorage.getItem('_shoppingCart')) {
       this.shoppingCart = JSON.parse(localStorage.getItem('_shoppingCart'));
+      for (const cartData of this.shoppingCart) {
+        this.totalAmount += cartData.amount;
+        this.totalCost += cartData.article.price * cartData.amount;
+      }
     }
   }
 
   increaseAmount(cartData: CartData) {
-    
+    this.totalAmount += 1;
+    this.totalCost += cartData.article.price;
+    cartData.amount += 1;
   }
 
-  reduceAmount(cartData: CartData) {
-    
+  decreaseAmount(cartData: CartData) {
+    if (cartData.amount === 1) {
+      this.deleteArticle(cartData);
+    } else {
+      this.totalAmount -= 1;
+      this.totalCost -= cartData.article.price;
+      cartData.amount -= 1;
+    }
   }
 
   deleteArticle(cartData: CartData) {
-    
+    this.totalAmount -= cartData.amount;
+    this.totalCost -= cartData.article.price * cartData.amount;
+    this.shoppingCart.splice(this.shoppingCart.indexOf(cartData), 1);
+    if (this.totalAmount === 0) {
+      localStorage.removeItem('_shoppingCart');
+    }
   }
+
 }

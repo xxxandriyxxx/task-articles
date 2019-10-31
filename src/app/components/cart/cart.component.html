@@ -1,3 +1,8 @@
+
+<div>Total amount = {{totalAmount}}</div>
+<div>Total cost = {{totalCost}}</div>
+
+
 <div>
   <div>Name</div>
   <div>Price</div>
@@ -13,7 +18,7 @@
   <div>{{cartData.article.price * cartData.amount}}</div>
   <div>
     <button (click)="increaseAmount(cartData)">+</button>
-    <button (click)="reduceAmount(cartData)">-</button>
+    <button (click)="decreaseAmount(cartData)">-</button>
     <button (click)="deleteArticle(cartData)">X</button>
   </div>
 </div>

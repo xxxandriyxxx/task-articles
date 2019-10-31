@@ -24,7 +24,9 @@ export class ArticlesComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    localStorage.setItem('_shoppingCart', JSON.stringify(this.shoppingCart));
+    if (this.shoppingCart.length !== 0) {
+      localStorage.setItem('_shoppingCart', JSON.stringify(this.shoppingCart));
+    }
   }
 
   getArticles() {
@@ -42,7 +44,6 @@ export class ArticlesComponent implements OnInit, OnDestroy {
     }
     console.log(JSON.stringify(this.shoppingCart));
   }
-
 
 
 }
