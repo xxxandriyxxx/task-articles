@@ -7,7 +7,7 @@ import {CartComponent} from './components/cart/cart.component';
 
 const routes: Routes = [
   {path: '', component: ArticlesComponent},
-  {path: 'basket', component: CartComponent}
+  {path: 'cart', component: CartComponent}
 ];
 
 @NgModule({
