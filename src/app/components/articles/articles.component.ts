@@ -2,6 +2,7 @@ import {Component, OnDestroy, OnInit} from '@angular/core';
 import {Article} from '../../models/Article';
 import {ArticleService} from '../../services/article.service';
 import {CartData} from '../../models/CartData';
+import {AppComponent} from '../../app.component';
 
 @Component({
   selector: 'app-articles',
@@ -12,14 +13,19 @@ export class ArticlesComponent implements OnInit, OnDestroy {
 
   articles: Article[] = [];
   shoppingCart: CartData[] = [];
+  totalAmount = 0;
 
-  constructor(private articleService: ArticleService) {
+  constructor(private articleService: ArticleService,
+              private appComponent: AppComponent) {
   }
 
   ngOnInit() {
     this.getArticles();
     if (localStorage.getItem('_shoppingCart')) {
       this.shoppingCart = JSON.parse(localStorage.getItem('_shoppingCart'));
+      for (const cartData of this.shoppingCart) {
+        this.totalAmount += cartData.amount;
+      }
     }
   }
 
@@ -42,7 +48,8 @@ export class ArticlesComponent implements OnInit, OnDestroy {
       const newCartData = new CartData(article, 1);
       this.shoppingCart.push(newCartData);
     }
-    console.log(JSON.stringify(this.shoppingCart));
+    this.totalAmount += 1;
+    this.appComponent.setTotalAmount(this.totalAmount);
   }
 
 

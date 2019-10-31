@@ -1,5 +1,6 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {CartData} from '../../models/CartData';
+import {AppComponent} from '../../app.component';
 
 @Component({
   selector: 'app-cart',
@@ -12,7 +13,7 @@ export class CartComponent implements OnInit, OnDestroy {
   totalCost = 0;
   shoppingCart: CartData[] = [];
 
-  constructor() {
+  constructor(private appComponent: AppComponent) {
   }
 
   ngOnInit() {
@@ -35,6 +36,7 @@ export class CartComponent implements OnInit, OnDestroy {
     this.totalAmount += 1;
     this.totalCost += cartData.article.price;
     cartData.amount += 1;
+    this.appComponent.setTotalAmount(this.totalAmount);
   }
 
   decreaseAmount(cartData: CartData) {
@@ -45,12 +47,14 @@ export class CartComponent implements OnInit, OnDestroy {
       this.totalCost -= cartData.article.price;
       cartData.amount -= 1;
     }
+    this.appComponent.setTotalAmount(this.totalAmount);
   }
 
   deleteArticle(cartData: CartData) {
     this.totalAmount -= cartData.amount;
     this.totalCost -= cartData.article.price * cartData.amount;
     this.shoppingCart.splice(this.shoppingCart.indexOf(cartData), 1);
+    this.appComponent.setTotalAmount(this.totalAmount);
     if (this.totalAmount === 0) {
       localStorage.removeItem('_shoppingCart');
     }
