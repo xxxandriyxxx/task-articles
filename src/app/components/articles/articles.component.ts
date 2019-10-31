@@ -33,11 +33,11 @@ export class ArticlesComponent implements OnInit, OnDestroy {
 
 
   addToCart(article: Article) {
-    const item = this.shoppingCart.find(cartData => cartData.articleId === article.id);
+    const item = this.shoppingCart.find(cartData => cartData.article.id === article.id);
     if (item) {
       item.amount += 1;
     } else {
-      const newCartData = new CartData(article.id, 1);
+      const newCartData = new CartData(article, 1);
       this.shoppingCart.push(newCartData);
     }
     console.log(JSON.stringify(this.shoppingCart));

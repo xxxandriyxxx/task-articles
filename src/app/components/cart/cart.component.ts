@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {CartData} from '../../models/CartData';
 
 @Component({
   selector: 'app-cart',
@@ -7,9 +8,28 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CartComponent implements OnInit {
 
-  constructor() { }
+  totalAmount: number = null;
+  totalCost: number = null;
+  shoppingCart: CartData[] = [];
 
-  ngOnInit() {
+  constructor() {
   }
 
+  ngOnInit() {
+    if (localStorage.getItem('_shoppingCart')) {
+      this.shoppingCart = JSON.parse(localStorage.getItem('_shoppingCart'));
+    }
+  }
+
+  increaseAmount(cartData: CartData) {
+    
+  }
+
+  reduceAmount(cartData: CartData) {
+    
+  }
+
+  deleteArticle(cartData: CartData) {
+    
+  }
 }

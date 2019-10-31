@@ -1,1 +1,19 @@
-<p>cart works!</p>
+<div>
+  <div>Name</div>
+  <div>Price</div>
+  <div>Amount</div>
+  <div>Cost</div>
+  <div>Actions</div>
+</div>
+
+<div *ngFor="let cartData of shoppingCart">
+  <div>{{cartData.article.name}}</div>
+  <div>{{cartData.article.price}}</div>
+  <div>{{cartData.amount}}</div>
+  <div>{{cartData.article.price * cartData.amount}}</div>
+  <div>
+    <button (click)="increaseAmount(cartData)">+</button>
+    <button (click)="reduceAmount(cartData)">-</button>
+    <button (click)="deleteArticle(cartData)">X</button>
+  </div>
+</div>
