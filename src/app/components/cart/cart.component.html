@@ -1,24 +1,29 @@
-
-<div>Total amount = {{totalAmount}}</div>
-<div>Total cost = {{totalCost}}</div>
-
-
 <div>
-  <div>Name</div>
-  <div>Price</div>
-  <div>Amount</div>
-  <div>Cost</div>
-  <div>Actions</div>
+  <div class="flex"><span class="bold">Total amount = {{totalAmount}}</span></div>
+  <div class="flex"><span class="bold">Total cost = {{totalCost}}</span></div>
 </div>
 
-<div *ngFor="let cartData of shoppingCart">
-  <div>{{cartData.article.name}}</div>
-  <div>{{cartData.article.price}}</div>
-  <div>{{cartData.amount}}</div>
-  <div>{{cartData.article.price * cartData.amount}}</div>
-  <div>
-    <button (click)="increaseAmount(cartData)">+</button>
-    <button (click)="decreaseAmount(cartData)">-</button>
-    <button (click)="deleteArticle(cartData)">X</button>
+<div *ngIf="totalAmount" id="cart-details">
+  <div id="cart-details-name"><span class="bold-color">Details:</span></div>
+  <div id="cart-details-header">
+    <div>Name</div>
+    <div>Price</div>
+    <div>Amount</div>
+    <div>Cost</div>
+    <div>Actions</div>
+  </div>
+
+  <div id="cart-details-grid" *ngFor="let cartData of shoppingCart">
+    <div class="dish-name">{{cartData.article.name}}</div>
+    <div>{{cartData.article.price}}</div>
+    <div>{{cartData.amount}}</div>
+    <div>{{cartData.article.price * cartData.amount}}</div>
+    <div>
+      <button class="increase-btn" (click)="increaseAmount(cartData)">+</button>
+      <button class="decrease-btn" (click)="decreaseAmount(cartData)">-</button>
+      <button class="delete-btn" (click)="deleteArticle(cartData)">X</button>
+    </div>
   </div>
 </div>
+
+

@@ -1,0 +1,105 @@
+
+.flex{
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+
+
+#cart-details {
+  margin-top: 20px;
+  display: grid;
+  grid-gap: 1px;
+  width: 60%;
+  margin-left: 20%;
+  border-radius: 4px;
+  border: dimgray solid 2px;
+}
+
+#cart-details-name {
+  padding: 20px;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  word-break: break-word;
+  background: silver;
+}
+
+#cart-details-header {
+  display: grid;
+  grid-gap: 1px;
+  grid-template-columns: 4fr 1fr 1fr 1fr 2fr;
+}
+
+#cart-details-header > div {
+  padding: .5em;
+  background: rosybrown;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  word-break: break-word;
+  font-weight: bold;
+}
+
+#cart-details-grid {
+  display: grid;
+  grid-template-columns: 4fr 1fr 1fr 1fr 2fr;
+  grid-gap: 1px;
+}
+
+#cart-details-grid > div {
+  padding: .5em;
+  background: silver;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  word-break: break-word;
+}
+
+#cart-details-grid > .dish-name {
+  text-align: left;
+  word-break: break-word;
+}
+
+
+
+#cart-details-grid button {
+  width: 30px;
+  height: 30px;
+  border: silver solid 1px;
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+#cart-details-grid button:hover {
+  opacity: 1;
+}
+
+
+
+.increase-btn {
+  background-color: #4CAF50;
+}
+
+.decrease-btn {
+  background-color: goldenrod;
+}
+
+.delete-btn {
+  background-color: indianred;
+}
+
+.bold {
+  font-weight: bold;
+  font-size: larger;
+}
+
+
+.bold-color {
+  font-weight: bold;
+  font-size: larger;
+  color: darkred;
+}
