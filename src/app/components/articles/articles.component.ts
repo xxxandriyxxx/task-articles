@@ -52,5 +52,4 @@ export class ArticlesComponent implements OnInit, OnDestroy {
     this.appComponent.setTotalAmount(this.totalAmount);
   }
 
-
 }
