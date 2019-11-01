@@ -12,16 +12,15 @@
     <div>Cost</div>
     <div>Actions</div>
   </div>
-
   <div id="cart-details-grid" *ngFor="let cartData of shoppingCart">
     <div class="dish-name">{{cartData.article.name}}</div>
     <div>{{cartData.article.price}}</div>
     <div>{{cartData.amount}}</div>
     <div>{{cartData.article.price * cartData.amount}}</div>
     <div>
-      <button class="increase-btn" (click)="increaseAmount(cartData)">+</button>
-      <button class="decrease-btn" (click)="decreaseAmount(cartData)">-</button>
-      <button class="delete-btn" (click)="deleteArticle(cartData)">X</button>
+      <button class="increase-btn" (click)="increaseAmount(cartData)">&#43;</button>
+      <button class="decrease-btn" (click)="decreaseAmount(cartData)">&#8722;</button>
+      <button class="delete-btn" (click)="deleteArticle(cartData)">&#10005;</button>
     </div>
   </div>
 </div>

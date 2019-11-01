@@ -1,11 +1,8 @@
-
-.flex{
+.flex {
   display: flex;
   justify-content: center;
   margin-bottom: 30px;
 }
-
-
 
 #cart-details {
   margin-top: 20px;
@@ -34,8 +31,9 @@
 
 #cart-details-header > div {
   padding: .5em;
-  background: rosybrown;
   display: flex;
+  background: dimgray;
+  color: #FFFFFF;
   align-items: center;
   justify-content: center;
   text-align: center;
@@ -64,12 +62,11 @@
   word-break: break-word;
 }
 
-
-
 #cart-details-grid button {
   width: 30px;
   height: 30px;
   border: silver solid 1px;
+  border-radius: 4px;
   cursor: pointer;
   opacity: 0.8;
 }
@@ -77,8 +74,6 @@
 #cart-details-grid button:hover {
   opacity: 1;
 }
-
-
 
 .increase-btn {
   background-color: #4CAF50;
@@ -97,9 +92,8 @@
   font-size: larger;
 }
 
-
 .bold-color {
   font-weight: bold;
   font-size: larger;
-  color: darkred;
+  color: #f4511e;
 }

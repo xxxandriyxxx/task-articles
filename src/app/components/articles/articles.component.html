@@ -1,11 +1,10 @@
-<div *ngFor="let article of articles" class="grid">
-  <ul>
-    <li>{{article.id}}</li>
-    <li>{{article.name}}</li>
-    <li>{{article.label}}</li>
-    <li>{{article.price}}</li>
-  </ul>
-  <button (click)="addToCart(article)">add</button>
+<div class="grid" *ngFor="let article of articles">
+  <div class="name">{{article.name}}</div>
+  <div class="buy-wrap">
+    <button class="buy-btn" (click)="addToCart(article)">Buy</button>
+  </div>
+  <div>{{article.label}}</div>
+  <div><span class="bold">Price:</span>{{article.price}}</div>
 </div>
 
 

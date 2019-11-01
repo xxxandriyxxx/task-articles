@@ -7,4 +7,5 @@ export class Article {
     public price: number = null
   ) {
   }
+
 }
