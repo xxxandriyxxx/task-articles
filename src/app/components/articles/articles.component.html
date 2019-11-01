@@ -1,4 +1,4 @@
-<div *ngFor="let article of articles">
+<div *ngFor="let article of articles" class="grid">
   <ul>
     <li>{{article.id}}</li>
     <li>{{article.name}}</li>
@@ -7,3 +7,5 @@
   </ul>
   <button (click)="addToCart(article)">add</button>
 </div>
+
+

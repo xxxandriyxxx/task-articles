@@ -1,6 +1,11 @@
-
-<button routerLink="/">Articles</button>
-<button routerLink="cart" >{{totalAmount}}</button>
+<div id="flex">
+  <button class="button" routerLink="/">
+    <span>Articles</span>
+  </button>
+  <button class="button gray" routerLink="cart">
+    <span><img id="cart-img" src="../assets/img/cart.png" alt="cart"> {{totalAmount}}</span>
+  </button>
+</div>
 
 <router-outlet>
 
